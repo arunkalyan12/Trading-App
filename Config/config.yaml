@@ -1,0 +1,93 @@
+data:
+  symbol: 'BTCUSDT'
+  interval: '1m'
+  raw_data: "C:/Users/Arun2/Documents/Project/Trading Strat/Data/Raw/Rawbtc_ohlcv_jan2023_to_sep2024.csv"
+  path: "C:/Users/Arun2/Documents/Project/Trading Strat/Data/Preprocessed/Preprocessed.csv"
+  frequency: 1
+  sequence_length: 100
+  num_features: 32  # Updated to reflect the correct number of features
+  features:
+    - Open
+    - High
+    - Low
+    - Close
+    - Volume
+    - Close Time
+    - SMA_50
+    - EMA_50
+    - Volatility
+    - returns
+    - cumulative_returns
+    - RSI
+    - MACD
+    - ATR
+    - Bollinger_Upper
+    - Bollinger_Lower
+    - Stochastic_Oscillator
+    - Doji_Pattern
+    - Hammer_Pattern
+    - Engulfing_Pattern
+    - Shooting_Star_Pattern
+    - Harami_Pattern
+    - OBV
+    - Body_Size
+    - Upper_Wick_Size
+    - Lower_Wick_Size
+    - Body_to_Wick_Ratio
+
+  label: 'Labels'
+
+
+model:
+  save_path: "C:/Users/Arun2/Documents/Project/Trading Strat/Models/trained_model.pkl"
+  best_params:
+    n_estimators: 50
+    max_depth: 30
+    min_samples_split: 2
+    min_samples_leaf: 1
+    bootstrap: False
+
+risk_management:
+  stop_loss: 0.01
+  take_profit: 0.02
+  max_drawdown: 0.1
+  risk_percentage: 1
+
+logging:
+  log_level: "INFO"
+  log_file_path: "C:/Users/Arun2/Documents/Project/Trading Strat/Logs/logfile.log"
+
+backtesting:
+  enabled: true
+  start_date: "2023-01-01"
+  end_date: "2024-09-01"
+  initial_balance: 10000
+
+# Uncomment and update if you plan to use the following model parameters
+# model:
+#   type: "2D_CNN"
+#   input_shape: [100, 34]
+#   num_filters: [32, 64, 128]
+#   kernel_size: [3, 3]
+#   pool_size: [2, 2]
+#   dropout_rate: 0.3
+#   activation: "relu"
+#   output_activation: "sigmoid"
+#   optimizer:
+#     type: "adam"
+#     learning_rate: 0.0025
+#     beta_1: 0.9
+#     beta_2: 0.999
+#     epsilon: 1e-07
+#   loss_function: "binary_crossentropy"
+#   batch_size: 16
+#   epochs: 50
+#
+# training:
+#   validation_split: 0.2
+#   shuffle: true
+#   early_stopping:
+#     enabled: true
+#     patience: 5
+#   save_best_model: true
+#   model_checkpoint_path: "C:/Users/Arun2/Documents/Project/Trading Strat/Components/checkpoints/model_checkpoint.keras"

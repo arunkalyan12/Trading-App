@@ -1,0 +1,24 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+cnntradeing/
+
+# Data and model files
+data/
+saved_models/
+Models/
+
+# Logs and checkpoints
+logs/
+checkpoints/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+"Components/extra_trees_model.pkl" 

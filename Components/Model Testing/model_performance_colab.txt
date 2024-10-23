@@ -1,0 +1,23 @@
+Logistic Regression Accuracy: 0.9984
+KNeighbors Classifier Accuracy: 0.9985
+Decision Tree Accuracy: 0.9986
+Random Forest Accuracy: 0.9991
+Logistic Regression Accuracy: 0.9984
+KNeighbors Classifier Accuracy: 0.9985
+Decision Tree Accuracy: 0.9987
+Random Forest Accuracy: 0.9990
+Gradient Boosting Accuracy: 0.9977
+AdaBoost Accuracy: 0.8635
+Extra Trees Accuracy: 0.9990
+Bagging Accuracy: 0.9990
+MLP Classifier Accuracy: 0.9985
+SVC Accuracy: 0.9985
+Linear SVC Accuracy: 0.9985
+Ridge Classifier Accuracy: 0.9985
+SGD Classifier Accuracy: 0.9981
+GaussianNB Accuracy: 0.9556
+Quadratic Discriminant Analysis Accuracy: 0.9599
+Perceptron Accuracy: 0.9954
+Passive Aggressive Accuracy: 0.9985
+Nearest Centroid Accuracy: 0.9643
+XGBoost Classifier Accuracy: 0.9992
