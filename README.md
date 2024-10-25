@@ -1,64 +1,98 @@
 # Trading Strategy Project
 
-This project aims to develop and test a trading strategy using a 2D Convolutional Neural Network (CNN) to analyze 1-minute OHLCV (Open, High, Low, Close, Volume) data from Coinbase. The goal is to predict profitable trading signals and make informed buy/sell decisions.
+This trading system is designed to streamline and automate the analysis and execution of trading strategies on financial markets. Built with advanced machine learning and deep learning components, it incorporates a robust pipeline for data ingestion, preprocessing, model training, backtesting, and evaluation. The project is modular and scalable, allowing easy adaptation for various financial assets and strategies. With support for logging, configuration management, and model checkpoints, the system is both maintainable and production-ready.
 
 ## Folder Structure
 
 ```
-Trading_Strategy
+Trading_System
+├── checkpoints
+│   ├── bidirectional_lstm_checkpoint.keras
+│   ├── cnn_checkpoint.keras
+│   ├── cnn_lstm_checkpoint.keras
+│   ├── cnn_lstm_ensemble_checkpoint.keras
+│   ├── cnn_only_checkpoint.keras
+│   ├── deep_cnn_checkpoint.keras
+│   ├── gru_only_checkpoint.keras
+│   ├── lstm_only_checkpoint.keras
+│   ├── simple_cnn_checkpoint.keras
+│   └── stacked_lstm_checkpoint.keras
 ├── Components
-│   ├── checkpoints
-│   │   └── model_checkpoint.keras
+│   ├── Model Testing
+│   │   ├── Logs
+│   │   │   ├── model_performance.txt
+│   │   │   └── model_testing.log
+│   │   ├── __pycache__
+│   │   │   └── model_experiment.cpython-39.pyc
+│   │   ├── model_builder (ann version).py
+│   │   ├── model_performance_colab.txt
+│   │   └── model_tester (ml version).py
 │   ├── path
 │   │   └── to
 │   │       └── logfile.log
 │   ├── __pycache__
+│   │   ├── data_loader.cpython-39.pyc
 │   │   ├── model_builder.cpython-39.pyc
-│   │   ├── predict.cpython-39.pyc
 │   │   └── preprocessing.cpython-39.pyc
-│   ├── candlestick_model.keras
+│   ├── best_extra_trees_params.txt
 │   ├── data_ingestion.py
 │   ├── model_builder.py
-│   ├── model_evaluation.py
-│   ├── predict.py
-│   ├── predictions.csv
 │   ├── preprocessing.py
-│   ├── train.py
-│   └── trained_model.keras
+│   └── train.py
 ├── Config
 │   ├── __pycache__
 │   │   └── config_loader.cpython-39.pyc
 │   ├── config.yaml
 │   └── config_loader.py
-├── Constants
 ├── Data
 │   ├── Preprocessed
 │   │   └── Preprocessed.csv
 │   └── Raw
+│       ├── Pipeline_raw.csv
 │       └── Rawbtc_ohlcv_jan2023_to_sep2024.csv
-├── Entity
 ├── Logging
-│   ├── logging
 │   ├── logs
 │   │   └── project.log
+│   ├── __pycache__
+│   │   └── logging_config.cpython-39.pyc
 │   ├── logging.yaml
 │   └── logging_config.py
+├── Logs
+│   ├── modeling.log
+│   ├── model_performance.txt
+│   └── project.log
+├── Models
+│   └── trained_model.pkl
 ├── Notebooks
 │   ├── .ipynb_checkpoints
 │   │   ├── Exploratory Data Analysis-checkpoint.ipynb
 │   │   ├── model_experimentation-checkpoint.ipynb
-│   │   └── Untitled-checkpoint.ipynb
+│   │   └── Preprocessed_EDA-checkpoint.ipynb
 │   ├── Exploratory Data Analysis.ipynb
 │   ├── model_experimentation.ipynb
+│   ├── model_optimization.ipynb
 │   └── Untitled.ipynb
 ├── Pipeline
+│   ├── logs
+│   │   └── project.log
+│   ├── __pycache__
+│   │   └── pipeline.cpython-39.pyc
+│   └── pipeline.py
 ├── Tests
 │   ├── __pycache__
 │   │   └── test_config_loader.cpython-39.pyc
 │   └── test_config_loader.py
 ├── Utils
-│   ├── data_preprocessing.py
-│   └── model_helpers.py
+│   ├── __pycache__
+│   │   ├── backtest_helper.cpython-39.pyc
+│   │   ├── data_ingestion_helper.cpython-39.pyc
+│   │   ├── data_loader.cpython-39.pyc
+│   │   ├── model_helper.cpython-39.pyc
+│   │   └── preprocessing_helper.cpython-39.pyc
+│   ├── backtest_helper.py
+│   ├── data_ingestion_helper.py
+│   ├── model_helper.py
+│   └── preprocessing_helper.py
 ├── .gitignore
 ├── main.py
 ├── README.md
@@ -66,45 +100,137 @@ Trading_Strategy
 
 ```
 
-### **Directory Descriptions**
+### Root Directory
+- **main.py**: Entry point for executing the entire pipeline.
+- **requirements.txt**: Lists all Python packages required to run the project.
+- **README.md**: This document.
+- **.gitignore**: Specifies files and directories to ignore in version control.
 
-- **Components/**: Contains modules for specific tasks like data loading, preprocessing, model training, and evaluation.
-- **Config/**: Configuration files including `config.yaml` for project settings and hyperparameters.
-- **Constants/**: Files for storing constant values such as fixed hyperparameters and thresholds.
-- **Entity/**: Data classes or schemas for defining the structure of important objects.
-- **Logging/**: Custom logging configurations and scripts for tracking execution and metrics.
-- **Pipeline/**: Scripts for end-to-end data processing, model training, and evaluation pipelines.
-- **Tests/**: Unit tests to ensure the correctness of various components.
-- **Utils/**: General utility functions and helper scripts.
-- **.gitignore**: Specifies files and directories to be ignored by Git.
-- **README.md**: This file.
-- **requirements.txt**: List of project dependencies.
+---
 
-### **Configuration**
+#### 1. `checkpoints`
+Contains saved checkpoints for various models. These files store intermediate training states, enabling resuming or ensemble modeling.
+  - `bidirectional_lstm_checkpoint.keras`
+  - `cnn_checkpoint.keras`
+  - `cnn_lstm_checkpoint.keras`
+  - ... (and more)
 
-The configuration settings are stored in `Config/config.yaml`. This file includes paths, model parameters, and training configurations.
+---
 
-#### Example `config.yaml`
+#### 2. `Components`
+Holds scripts for model building, training, and testing, including helper utilities for data ingestion and preprocessing.
 
-```yaml
-data:
-  data_path: 'data/ohlcv_data.csv'
-  frequency: '1min'
-  validation_split: 0.2
+- **Model Testing**
+  - `Logs`: Stores logs and performance metrics for model testing.
+    - `model_performance.txt`
+    - `model_testing.log`
+  - `model_builder (ann version).py`: Alternative model builder script (for ANN models).
+  - `model_performance_colab.txt`: Model performance output from Google Colab.
+  - `model_tester (ml version).py`: Machine learning model tester script.
+  - Additional files:
+    - `data_ingestion.py`: Script for data ingestion and loading.
+    - `model_builder.py`: Main model-building script.
+    - `preprocessing.py`: Script for data preprocessing tasks.
+    - `train.py`: Model training script.
 
-keras:
-  model:
-    cnn:
-      num_filters: [16, 32, 64]
-      kernel_size: [3, 3]
-      pool_size: [2, 2]
-      dropout_rate: 0.3
-      activation: 'relu'
-      output_activation: 'softmax'
-  training:
-    learning_rate: 0.001
-    batch_size: 16
-    epochs: 30
-    optimizer: 'adam'
-    loss_function: 'categorical_crossentropy'
-```
+---
+
+#### 3. `Config`
+Contains configuration files and loaders, specifying parameters and paths for different modules.
+
+- `config.yaml`: Main configuration file for setting parameters.
+- `config_loader.py`: Script to load and handle configuration data.
+
+---
+
+#### 4. `Data`
+Stores raw and preprocessed datasets used for training and testing models.
+
+- **Preprocessed**
+  - `Preprocessed.csv`: Final processed dataset.
+- **Raw**
+  - `Pipeline_raw.csv`: Raw dataset for pipeline input.
+  - `Rawbtc_ohlcv_jan2023_to_sep2024.csv`: Original dataset for analysis.
+
+---
+
+#### 5. `Logging`
+Handles configuration and storage of logs.
+
+- `logging.yaml`: Logging configuration file.
+- `logging_config.py`: Python script to initialize logging as per configuration.
+
+---
+
+#### 6. `Logs`
+Central storage for logs generated during modeling and project execution.
+
+- `modeling.log`: Log for the modeling process.
+- `model_performance.txt`: Documented performance metrics.
+- `project.log`: General project logs.
+
+---
+
+#### 7. `Models`
+Holds saved models after training.
+
+- `trained_model.pkl`: Serialized trained model.
+
+---
+
+#### 8. `Notebooks`
+Contains Jupyter Notebooks for exploratory data analysis, experimentation, and optimization.
+
+- `Exploratory Data Analysis.ipynb`: Initial data exploration and visualization.
+- `model_experimentation.ipynb`: Notebook for testing and experimenting with models.
+- `model_optimization.ipynb`: Optimizing model hyperparameters and structure.
+- Checkpoints:
+  - `.ipynb_checkpoints`: Contains notebook checkpoints for autosaved progress.
+
+---
+
+#### 9. `Pipeline`
+Scripts and logs for orchestrating the end-to-end pipeline execution.
+
+- `pipeline.py`: Main pipeline script that manages ingestion, preprocessing, and model execution.
+- `logs`: Stores logs generated during pipeline execution.
+
+---
+
+#### 10. `Tests`
+Unit tests for ensuring modules function correctly.
+
+- `test_config_loader.py`: Tests for configuration loading functions.
+
+---
+
+#### 11. `Utils`
+Helper functions for various stages in the pipeline, including data ingestion, preprocessing, and backtesting.
+
+- `backtest_helper.py`: Helper functions for backtesting model predictions.
+- `data_ingestion_helper.py`: Utilities for fetching and processing data.
+- `model_helper.py`: Support functions for model-related tasks.
+- `preprocessing_helper.py`: Helper functions for data preprocessing.
+
+---
+
+## Usage Instructions
+
+### Setup:
+- Clone the repository and navigate to the project directory.
+- Install dependencies using:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Run the Pipeline:
+- Execute the following command to start the main pipeline:
+
+    ```bash
+    python main.py
+    ```
+
+### Configuration:
+- Update the `Config/config.yaml` file to adjust model parameters and other settings.
+
