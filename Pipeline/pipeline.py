@@ -15,6 +15,8 @@ from Utils.backtest_helper import backtest
 
 
 def main():
+    logger = None
+
     try:
         # Load configuration
         print('Config is being loaded...')
@@ -23,7 +25,7 @@ def main():
 
         # Setup logging
         print('Setting up logging...')
-        logger = setup_logging('C:/Users/Arun2/Documents/Project/Trading Strat/Logging/logging.yaml')
+        logger = setup_logging(config['logging']['log_file_path'])
         logger.info("Pipeline execution started.")
         print('Logging setup complete.')
 
@@ -33,7 +35,7 @@ def main():
         interval = config['data']['interval']
         start_time = int(pd.Timestamp(config['backtesting']['start_date']).timestamp() * 1000)
         end_time = int(pd.Timestamp(config['backtesting']['end_date']).timestamp() * 1000)
-        save_path = r'C:\Users\Arun2\Documents\Project\Trading Strat\Data\Raw\Pipeline_raw.csv'
+        save_path = r'C:/Users/arunm/Documents/Projects/Trading-App/Data/Raw/Pipeline_raw.csv'
 
         # Fetch OHLCV data using the ingest_data function
         df = ingest_data(symbol, interval, start_time, end_time, save_path)
@@ -95,8 +97,10 @@ def main():
         evaluate_performance(y_test, y_pred, logger)
 
     except Exception as e:
-        logger.error(f"Error occurred during pipeline execution: {e}")
-        print(f"An error occurred: {e}")
+        if logger:
+            logger.error(f"Error occurred during pipeline execution: {e}")
+        else:
+            print(f"An error occurred (logger not available): {e}")
 
 
 def evaluate_performance(y_true, y_pred, logger):

@@ -83,7 +83,8 @@ def preprocess_data(file_path):
     return df
 
 
-# config = load_config()
-# processed_df = preprocess_data(config['data']['raw_data'])
-# print(processed_df.info())
-# processed_df.to_csv(r'C:\Users\Arun2\Documents\Project\Trading Strat\Data\Preprocessed\Preprocessed.csv', index=False)
+config = load_config()
+processed_df = preprocess_data(config['data']['raw_data'])
+print("Raw data has been loaded")
+print(processed_df.info())
+processed_df.to_csv(r"C:/Users/arunm/Documents/Projects/Trading-App/Data/Preprocessed/Preprocessed.csv", index=False)

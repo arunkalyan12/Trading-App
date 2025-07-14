@@ -1,8 +1,8 @@
 data:
   symbol: 'BTCUSDT'
   interval: '1m'
-  raw_data: "C:/Users/Arun2/Documents/Project/Trading Strat/Data/Raw/Rawbtc_ohlcv_jan2023_to_sep2024.csv"
-  path: "C:/Users/Arun2/Documents/Project/Trading Strat/Data/Preprocessed/Preprocessed.csv"
+  raw_data: "C:/Users/arunm/Documents/Projects/Trading-App/Data/Raw/Rawbtc_ohlcv_jan2023_to_sep2024.csv"
+  path: "C:/Users/arunm/Documents/Projects/Trading-App/Data/Preprocessed/Preprocessed.csv"
   frequency: 1
   sequence_length: 100
   num_features: 32  # Updated to reflect the correct number of features
@@ -39,7 +39,7 @@ data:
 
 
 model:
-  save_path: "C:/Users/Arun2/Documents/Project/Trading Strat/Models/trained_model.pkl"
+  save_path: "C:/Users/arunm/Documents/Projects/Trading-App/Models/trained_model.pkl"
   best_params:
     n_estimators: 50
     max_depth: 30
@@ -55,7 +55,7 @@ risk_management:
 
 logging:
   log_level: "INFO"
-  log_file_path: "C:/Users/Arun2/Documents/Project/Trading Strat/Logs/logfile.log"
+  log_file_path: "C:/Users/arunm/Documents/Projects/Trading-App/Logging/logging.yaml"
 
 backtesting:
   enabled: true

@@ -70,7 +70,7 @@ if all_data:
     print(final_df)
 
     # Save the combined DataFrame to a CSV file
-    final_df.to_csv(r'C:\Users\Arun2\Documents\Project\Trading Strat\Data\Raw\Rawbtc_ohlcv_jan2023_to_sep2024.csv', index=False)
+    final_df.to_csv(r'C:/Users/arunm/Documents/Projects/Trading-App/Data/Raw/Rawbtc_ohlcv_jan2023_to_sep2024.csv', index=False)
     print("Data successfully saved to CSV.")
 else:
     # Print a message if no data was fetched
