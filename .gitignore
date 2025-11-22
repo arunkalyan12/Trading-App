@@ -21,4 +21,5 @@ checkpoints/
 # Operating system files
 .DS_Store
 Thumbs.db
-"Components/extra_trees_model.pkl" 
+"Components/extra_trees_model.pkl"
+.h5
