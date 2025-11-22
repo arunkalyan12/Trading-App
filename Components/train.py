@@ -2,7 +2,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Config.config_loader import load_config
-from Utils.model_helper import load_data, build_model, train_model, evaluate_model, save_model
+from old.model_helper import load_data, build_model, train_model, evaluate_model, save_model
 
 
 def main():

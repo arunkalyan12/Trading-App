@@ -3,8 +3,7 @@ import os
 import sys
 import numpy as np
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from Utils.preprocessing_helper import clean_data, rsi, macd, bollinger_bands, atr, stochastic_oscillator, \
-    feature_engineering
+from old.preprocessing_helper import clean_data, feature_engineering
 from Config.config_loader import load_config
 
 

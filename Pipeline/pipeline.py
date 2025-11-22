@@ -7,11 +7,11 @@ import joblib
 # Import components
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Utils.data_ingestion_helper import ingest_data
-from Utils.preprocessing_helper import feature_engineering
+from old.preprocessing_helper import feature_engineering
 from Components.preprocessing import generate_labels
 from Config.config_loader import load_config
 from Logging.logging_config import setup_logging
-from Utils.backtest_helper import backtest
+from old.backtest_helper import backtest
 
 
 def main():
