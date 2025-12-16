@@ -6,9 +6,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Utils.preprocessing_helper import clean_data, feature_engineering
 from Config.config_loader import load_config
 
-def preprocess_data(file_path):
+def preprocess_data(df):
     #Load the dataset
-    df = pd.read_csv(file_path)
+    # df = pd.read_csv(file_path)
     
     #Clean Data
     df = clean_data(df)
@@ -31,8 +31,8 @@ def preprocess_data(file_path):
 
     return df
 
-config = load_config()
-processed_df = preprocess_data(config['data']['raw_data'])
-print("Raw data has been loaded")
-print(processed_df.info())
-processed_df.to_csv(r"C:/Users/arunm/Documents/Projects/Trading-App/Data/Preprocessed/Preprocessed.csv", index=False)
+# config = load_config()
+# processed_df = preprocess_data(config['data']['raw_data'])
+# print("Raw data has been loaded")
+# print(processed_df.info())
+# processed_df.to_csv(r"C:/Users/arunm/Documents/Projects/Trading-App/Data/Preprocessed/Preprocessed.csv", index=False)

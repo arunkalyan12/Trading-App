@@ -28,18 +28,18 @@ def main():
         print('Loading config...')
         config = load_config()
 
-        print('Setting up logging...')
-        if 'logging' in config and 'log_file_path' in config['logging']:
-            logger = setup_logging(config['logging']['log_file_path'])
-        else:
-            fallback_logger.warning("Logging config path not found in config. Using fallback logger.")
+        # print('Setting up logging...')
+        # if 'logging' in config and 'log_file_path' in config['logging']:
+        #     logger = setup_logging(config['logging']['log_file_path'])
+        # else:
+        #     fallback_logger.warning("Logging config path not found in config. Using fallback logger.")
 
-        logger.info("Trading system pipeline is starting...")
+        # logger.info("Trading system pipeline is starting...")
 
         # Run the trading pipeline
         pipeline_main()
 
-        logger.info("Trading system pipeline completed successfully.")
+        # logger.info("Trading system pipeline completed successfully.")
         print("Trading system pipeline completed successfully.")
 
     except Exception as e:

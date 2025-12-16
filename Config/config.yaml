@@ -13,29 +13,8 @@ data:
     - Close
     - Volume
     - Close Time
-    - SMA_50
-    - EMA_50
-    - Volatility
-    - returns
-    - cumulative_returns
-    - RSI
-    - MACD
-    - ATR
-    - Bollinger_Upper
-    - Bollinger_Lower
-    - Stochastic_Oscillator
-    - Doji_Pattern
-    - Hammer_Pattern
-    - Engulfing_Pattern
-    - Shooting_Star_Pattern
-    - Harami_Pattern
-    - OBV
-    - Body_Size
-    - Upper_Wick_Size
-    - Lower_Wick_Size
-    - Body_to_Wick_Ratio
 
-  label: 'Labels'
+  label: 'Close'
 
 
 model:
@@ -49,9 +28,9 @@ model:
 
 risk_management:
   stop_loss: 0.01
-  take_profit: 0.02
+  take_profit: 0.5
   max_drawdown: 0.1
-  risk_percentage: 1
+  risk_percentage: 2
 
 logging:
   log_level: "INFO"
@@ -59,8 +38,9 @@ logging:
 
 backtesting:
   enabled: true
-  start_date: "2023-01-01"
-  end_date: "2024-09-01"
+  threshold: 0.03
+  start_date: "2024-01-01"
+  end_date: "2025-09-01"
   initial_balance: 10000
 
 # Uncomment and update if you plan to use the following model parameters

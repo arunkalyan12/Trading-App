@@ -6,17 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="15fcbd58-75e6-4ec0-9a8c-f476a504c059" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/model_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/model_builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/Components/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebooks/Exploratory Data Analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Exploratory Data Analysis.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebooks/Untitled.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Untitled.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebooks/model_experimentation.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebooks/model_optimization.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/model_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Components/model_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Components/preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Config/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/Mode-Experiment2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Mode-Experiment2.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pipeline/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pipeline/pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/backtest_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/backtest_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/model_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/model_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/preprocessing_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/preprocessing_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/preprocessing_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/preprocessing_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
